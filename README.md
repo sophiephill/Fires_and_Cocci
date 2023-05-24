@@ -6,28 +6,33 @@ Human case data are protected health information (PHI) with access restricted to
 
 The code is divided into four folders:
 
-1. **Analysis** contains the code to analyze the effect estimates obtained from the generalized synthetic control analysis and covariate data. Within this folder, the R scripts are as follows:
-* **Results Data** contains csv files for the effect estimates obtained from our analyses
+## Analysis 
 
-* **GsynthControlSensitivityAnalysis.R** provides the code for calculating the effect estimates when each of the controls for a fire is left out.
+* **Results Data** contains csv files for the effect estimates obtained from our 
+
+* **GsynthControlSensitivityAnalysis.R** provides the code for calculating the effect estimates when each of the controls for a fire is left 
 
 * **InteractionAnalysis.R** regresses the number of high wind days in a region on whether it occurs during the month of the fire and in a fire-exposed region, examining the significance of the interaction term. 
 
-* **MesmaItsAnalysis.R** contains the code for conducting an Interrupted Time Series analysis to ascertain whether the levels of vegetative land cover (MESMA) were significantly different in any month following the fire. 
+ * **MesmaItsAnalysis.R** contains the code for conducting an Interrupted Time Series analysis to ascertain whether the levels of vegetative land cover (MESMA) were significantly different in any month following the fire. 
 
-* PoolEffects.R
+* **PoolEffects.R** contains the script to pool effect estimates from multiple fires across different time periods using the meta package for fixed effects meta analysis
 
-2. **Covariates**
+## **Covariates
 * data 
+
 * GetFireElevationData.R 
+
 * prism.R
 
-3. **Hexagon Boundaries**
+## Hexagon Boundaries
 * Shape files for control grid and hexagonal boundaries surrounding fires. The main analysis used boundaries with radius 20km
-* getHexagonalBoundary
-* RmPostFireOverlaps
 
-4. **gsynth**
+* **getHexagonalBoundary.R** contains the script for drawing a hexagonal boundary centered on the center of a burned area.
+
+* RmPostFireOverlaps.R
+
+## gsynth
 * getCaseandCovdata.R
 
 * gsynth.R
