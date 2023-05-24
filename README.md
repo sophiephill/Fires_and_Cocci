@@ -12,29 +12,30 @@ The code is divided into four folders:
 
 * **GsynthControlSensitivityAnalysis.R** provides the code for calculating the effect estimates when each of the controls for a fire is left 
 
-* **InteractionAnalysis.R** regresses the number of high wind days in a region on whether it occurs during the month of the fire and in a fire-exposed region, examining the significance of the interaction term. 
+* **InteractionAnalysis.R** regresses the number of high wind days in a region on whether it occurs in a fire-exposed region during the month of the fire, examining the significance of this interaction. 
 
- * **MesmaItsAnalysis.R** contains the code for conducting an Interrupted Time Series analysis to ascertain whether the levels of vegetative land cover (MESMA) were significantly different in any month following the fire. 
+ * **MesmaItsAnalysis.R** contains the code for conducting an Interrupted Time Series analysis to ascertain whether the levels of vegetative land cover (MESMA) were significantly different in the months following the fire. 
 
-* **PoolEffects.R** contains the script to pool effect estimates from multiple fires across different time periods using the meta package for fixed effects meta analysis
+* **PoolEffects.R** contains the script to pool effect estimates from multiple fires across different time periods using a fixed effects meta analysis from the R package meta.
 
 ## **Covariates
-* data 
+* **data** contains various environmental variables extracted for fire and control regions, summarized monthly.
 
-* GetFireElevationData.R 
+* **GetFireElevationData.R** script to extract elevation data from USGS rasters to the centroid of the hexagonal boundary surrounding each fire.
 
-* prism.R
+* **prism.R** script to extract temperature and precipitation data from rasters obtained from Prism Climate Group. The data are summarized monthly within each fire and control region.
 
 ## Hexagon Boundaries
 * Shape files for control grid and hexagonal boundaries surrounding fires. The main analysis used boundaries with radius 20km
 
-* **getHexagonalBoundary.R** contains the script for drawing a hexagonal boundary centered on the center of a burned area.
+* **getHexagonalBoundary.R** contains functions to draw a hexagonal boundary centered on the center of a burned area.
 
-* RmPostFireOverlaps.R
+* **PostFireOverlaps.csv** identifies the fire-exposed regions that overlap with another fire during the three years pre- or post-ignition. Overlaps are reported for each of the hexagonal buffer sizes examined (15, 20, 25 km).
 
 ## gsynth
-* getCaseandCovdata.R
+* **getCaseandCovdata.R** provides functions to format a data frame that can be used by gsynth. For each fire id, eligible control regions are identified, and the associated covariate and case data are formatted into a dataframe where the time variable is measured as the number of months before or after ignition.
 
-* gsynth.R
+* **gsynth.R** provides the script used to obtain effect and uncertainty estimates using the generalized synthetic control method implemented by the R package gsynth. Each fire effect is estimated separately as the differing ignition dates required each fire to have a separate pool of controls. 
 
 * **MesmaPositiveControl.R** contains the script to run the generalized synthetic control method using percent vegetative land cover (MESMA) as outcome, and pool estimates using a fixed effects meta analysis.
+
