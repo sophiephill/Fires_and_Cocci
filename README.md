@@ -9,19 +9,17 @@ The code is divided into four folders:
 1. **Analysis** contains the code to analyze the effect estimates obtained from the generalized synthetic control analysis and covariate data. Within this folder, the R scripts are as follows:
 * **Results Data** contains csv files for the effect estimates obtained from our analyses
 
-* **CovariateITSAnalysis.R** contains the code for conducting an Interrupted Time Series analysis. We examined several covariates but only discussed results for percent vegetative cover (MESMA) in our paper.
+* **GsynthControlSensitivityAnalysis.R** provides the code for calculating the effect estimates when each of the controls for a fire is left out.
 
-* **getPercentChange.R**
+* **InteractionAnalysis.R** regresses the number of high wind days in a region on whether it occurs during the month of the fire and in a fire-exposed region, examining the significance of the interaction term. 
 
-* GsynthControlSensitivityAnalysis.R
-* InteractionAnalysis.R
-* MesmaItsAnalysis.R
-* MesmaPositiveControl.R
+* **MesmaItsAnalysis.R** contains the code for conducting an Interrupted Time Series analysis to ascertain whether the levels of vegetative land cover (MESMA) were significantly different in any month following the fire. 
+
 * PoolEffects.R
 
 2. **Covariates**
 * data 
-* GetFireElevationData.R
+* GetFireElevationData.R 
 * prism.R
 
 3. **Hexagon Boundaries**
@@ -31,4 +29,7 @@ The code is divided into four folders:
 
 4. **gsynth**
 * getCaseandCovdata.R
+
 * gsynth.R
+
+* **MesmaPositiveControl.R** contains the script to run the generalized synthetic control method using percent vegetative land cover (MESMA) as outcome, and pool estimates using a fixed effects meta analysis.
