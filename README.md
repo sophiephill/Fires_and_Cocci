@@ -6,15 +6,28 @@ Human case data are protected health information (PHI) with access restricted to
 
 The code is divided into five folders:
 
-\begin{enumerate}
-	\item Counterfactual_Drought_Analysis contains the code to estimate the number of cases of coccidioidomycosis averted by or attributed to the 2007-2009 and the 2012-2015 droughts in California. Within this folder, the R scripts are as follows:
-main_counterfactual_drought_script.R is the main script that performs the analysis, and calls the functions located in the second script.
-	\begin{itemize}
-	\item **counterfactual_drought_functions.R** 
-	\end{itemize}
-	
-	\item 
-	\begin{itemize}
-	\item Blah
-	\end{itemize}
-\end{enumerate}
+1.**Analysis** contains the code to estimate the number of cases of coccidioidomycosis averted by or attributed to the 2007-2009 and the 2012-2015 droughts in California. Within this folder, the R scripts are as follows
+* analysis.ipynb
+* functions.py
+* Results Data
+* CovariateITSAnalysis.R
+* getPercentChange.R
+* GsynthControlSensitivityAnalysis.R
+* InteractionAnalysis.R
+* MesmaItsAnalysis.R
+* MesmaPositiveControl.R
+* PoolEffects.R
+
+2. **Covariates**
+* data 
+* GetFireElevationData.R
+* prism.R
+
+3. **Hexagon Boundaries**
+* Shape files for control grid and hexagonal boundaries surrounding fires. The main analysis used boundaries with radius 20km
+* getHexagonalBoundary
+* RmPostFireOverlaps
+
+4. **gsynth**
+* getCaseandCovdata.R
+* gsynth.R
