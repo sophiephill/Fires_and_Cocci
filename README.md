@@ -18,7 +18,7 @@ The code is divided into four folders:
 
 * **PoolEffects.R** contains the script to pool effect estimates from multiple fires across different time periods using a fixed effects meta analysis from the R package meta.
 
-## **Covariates
+## Covariates
 * **data** contains various environmental variables extracted for fire and control regions, summarized monthly.
 
 * **GetFireElevationData.R** script to extract elevation data from USGS rasters to the centroid of the hexagonal boundary surrounding each fire.
