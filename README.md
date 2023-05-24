@@ -6,11 +6,9 @@ Human case data are protected health information (PHI) with access restricted to
 
 The code is divided into five folders:
 
-1.**Analysis** contains the code to estimate the number of cases of coccidioidomycosis averted by or attributed to the 2007-2009 and the 2012-2015 droughts in California. Within this folder, the R scripts are as follows
-* analysis.ipynb
-* functions.py
-* Results Data
-* CovariateITSAnalysis.R
+1. **Analysis** contains the code to analyze the effect estimates obtained from the generalized synthetic control analysis and covariate data. Within this folder, the R scripts are as follows:
+* *Results Data* contains csv files for the effect estimates obtained from our analyses
+* *CovariateITSAnalysis.R* contains the code for 
 * getPercentChange.R
 * GsynthControlSensitivityAnalysis.R
 * InteractionAnalysis.R
