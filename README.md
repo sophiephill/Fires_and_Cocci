@@ -1,6 +1,6 @@
 # Fires_and_Cocci
 
-This repo contains the code associated with the paper, *Association between wildfires and coccidioidomycosis incidence in California, 2000–2018: a synthetic control analysis*.
+This repo contains the code associated with the paper *Association between wildfires and coccidioidomycosis incidence in California, 2000–2018: a synthetic control analysis*.
 
 Human case data are protected health information (PHI) with access restricted to authorized California Department of Public Health (CDPH) staff. Case data is thus not included in this repository. 
 
@@ -8,18 +8,18 @@ The code is divided into four folders:
 
 ## Analysis 
 
-* **Results Data** contains csv files for the effect estimates obtained from our 
+* **Results Data** contains csv files for the effect estimates obtained from our gsynth analysis
 
-* **GsynthControlSensitivityAnalysis.R** provides the code for calculating the effect estimates when each of the controls for a fire is left 
+* **GsynthControlSensitivityAnalysis.R** contains the code for the control sensitivity analysis in which each control is removed one at a time from the eligible control pool and calculating the effect of the wildfire with this control excluded.
 
-* **InteractionAnalysis.R** regresses the number of high wind days in a region on whether it occurs in a fire-exposed region during the month of the fire, examining the significance of this interaction. 
+* **InteractionAnalysis.R** regresses the number of high wind days in a region on whether it occurs in a fire-exposed region during the month of the fire. We reported on the significance of this interaction.
 
  * **MesmaItsAnalysis.R** contains the code for conducting an Interrupted Time Series analysis to ascertain whether the levels of vegetative land cover (MESMA) were significantly different in the months following the fire. 
 
 * **PoolEffects.R** contains the script to pool effect estimates from multiple fires across different time periods using a fixed effects meta analysis from the R package meta.
 
 ## Covariates
-* **data** contains various environmental variables extracted for fire and control regions, summarized monthly.
+* **data** contains various environmental variables extracted for fire and control regions, summarized monthly. Case data are PHI and thus not included.
 
 * **GetFireElevationData.R** script to extract elevation data from USGS rasters to the centroid of the hexagonal boundary surrounding each fire.
 
@@ -33,7 +33,7 @@ The code is divided into four folders:
 * **PostFireOverlaps.csv** identifies the fire-exposed regions that overlap with another fire during the three years pre- or post-ignition. Overlaps are reported for each of the hexagonal buffer sizes examined (15, 20, 25 km).
 
 ## gsynth
-* **getCaseandCovdata.R** provides functions to format a data frame that can be used by gsynth. For each fire id, eligible control regions are identified, and the associated covariate and case data are formatted into a dataframe where the time variable is measured as the number of months before or after ignition.
+* **getCaseandCovdata.R** provides functions to format a data frame for use in gsynth. For each fire id, eligible control regions are identified, and the associated covariate and case data are formatted into a dataframe where the time variable is measured as the number of months before or after the fire ignition date.
 
 * **gsynth.R** provides the script used to obtain effect and uncertainty estimates using the generalized synthetic control method implemented by the R package gsynth. Each fire effect is estimated separately as the differing ignition dates required each fire to have a separate pool of controls. 
 
