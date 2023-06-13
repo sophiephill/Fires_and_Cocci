@@ -5,7 +5,6 @@ library(sp)
 library(rgeos)
 library(hexbin)
 
-setwd("~/Desktop/CocciWildfires/")
 thexes <- read.csv("thexes_data.csv",stringsAsFactors = F)
 fires <- readOGR("shapes/92FiresBoundaries", "fires92",stringsAsFactors = F)
 fires <- spTransform(fires, CRS("+init=epsg:3488 +units=m"))
@@ -75,9 +74,6 @@ g4 <- thexes[thexes$JenksSizeCat=="XL", "acres"]
 #### Trying different radii around the fires 
 ######################################################
 biggestfire <- fires[fires$FIRE_NAME=="PIUTE",]
-# measures IF fire boundary were hexagonal, don't take this too seriously
-side <- getHexSideLengthfromArea(acres2m2(biggestfire$ACRES))
-r <- getInscribedCircleRadiusfromArea(acres2m2(biggestfire$ACRES)) 
 
 # fire buffer
 centroid <-  gCentroid(biggestfire, byid=TRUE)
