@@ -10,11 +10,6 @@ library(stringr)
 ############ Prep data #######################################################
 ##############################################################################
 
-## savio changed R versions and the new R has new base functions such as isFalse
-isFALSE <- function(x) {
-  return(!isTRUE(x))
-}
-
 # Determine eligible controls
 # maxControls is an optional argument, include for the robustness check
 getEligible <- function(fire_id, chexes, thexes, controlFires, n = 3) {
@@ -63,7 +58,6 @@ convertDate <- function(s, onset = T) {
 # removes polygons with zero cases (necessary for placeboSynth function)
 getCaseData <- function(fireid, fcases, ctcases, thexes, nbefore = 36, nafter = 36, warning = F) {
   endPre <- fcases[fcases$fire_id == fireid, "OnsetMonth"]
-  # Jen calculated onset month with zero-indexing but the cols are 1-indexed
   startPost <- endPre
   
   # modified fireid handles case when fires were so close they should've been counted as one: 
