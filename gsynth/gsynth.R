@@ -43,20 +43,12 @@ preMse <- function(df) {
 badFits <- data.frame()
 badfits <- read.csv("../gsynth/PoorlyFitPlacebosMse5.csv")
 
-## For 15km, some regions too small (few cases) so I didn't extract cov data
-haveDataOn <- hexidToFireid(soil15[grepl("FR", soil15$HEXID), 'HEXID'], thexes15)
-
 # If you only need data on the fires we kept
 pools <- read.csv("../gsynth/WhichHexesToPool.csv")
 keep <- pools[pools$pool == "keep", "ids"]
 kept19 <- sapply(keep, hexidToFireid, thexes = thexes20)
 
 for(id in kept19) {
-  ### If 15km, some regions were too small so I didn't extract cov data ####
-  #if (!(id %in% haveDataOn)) {
-   # next
-  #}
-  ###########################################################################
   print(id)
   df <- getDf(id, thexes20, chexes20, wind20, pop15, soil20, prism20, 
               impervious20, fcases20, ctcases20, mesma20, controlFires20)
