@@ -52,7 +52,7 @@ keep <- pools[pools$pool == "keep", "ids"]
 kept19 <- sapply(keep, hexidToFireid, thexes = thexes20)
 
 for(id in kept19) {
-  ### If 15/25km, some regions were too small so I didn't extract cov data ####
+  ### If 15km, some regions were too small so I didn't extract cov data ####
   #if (!(id %in% haveDataOn)) {
    # next
   #}
